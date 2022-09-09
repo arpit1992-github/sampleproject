@@ -19,13 +19,16 @@ import com.bank.service.BankStatementService;
 @Validated
 @RequestMapping("/bankstatement")
 public class BankStatementController {
-
+        
+	
+	
 	@Autowired
 	BankStatementService bankStatementService;
 	
 	@GetMapping("/trasaction")
 	public ResponseEntity<List<BankStatementDto>> getBankStatement( @RequestParam("date")String date,@RequestParam("account")String account){
 		List<BankStatementDto> statements=bankStatementService.getBankStatement(date,account);
+		System.out.println("git demo");
 		       return new ResponseEntity<List<BankStatementDto>>(statements,HttpStatus.OK);
 	}
 }
